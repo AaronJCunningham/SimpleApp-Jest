@@ -1,15 +1,30 @@
 import React from 'react'
 
 class CommentBox extends React.Component {
+state = {
+    comment: ''
+}
+
+handleChange = (event) => {
+ this.setState({ comment: event.target.value })
+}
+
+handleSubmit = event => {
+    event.preventDefault();
+
+    this.setState({ comment: ''})
+}
+
+
     render(){
         return (
-            <from>
+            <form>
                 <h4>Add A Comment</h4>
-                <textarea />
+                <textarea onChange={this.handleChange} value={this.state.comment} />
                 <div>
-                    <button>Submit Content</button>
+                    <button onClick={console.log(this.comment)}>Submit Content</button>
                 </div>
-            </from>
+            </form>
         )
     }
 }
